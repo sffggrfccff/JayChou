@@ -385,3 +385,10 @@ IP-CIDR,122.229.8.47/32, reject
 IP-CIDR,122.229.29.89/32, reject
 # > ChinaMobile
 IP-CIDR,120.240.95.37/32, reject
+# > 快手
+HOST-SUFFIX,yximgs.com, reject
+HOST-SUFFIX,e.kuaishou.com, reject
+HOST,js-ad.a.yximgs.com, reject
+HOST-SUFFIX,cm.downloader.commercial.kuaishou.com, reject
+HOST-SUFFIX,cm.ad.gifshow.com, reject
+HOST-SUFFIX,cm.kwad.com, reject
