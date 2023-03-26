@@ -1,0 +1,5 @@
+shadowsocks = 172.105.6.155:32455, method=chacha20-ietf-poly1305, password=2905015683, fast-open=false, udp-relay=false, tag=🇨🇦加拿大
+shadowsocks = 143.42.213.66:32455, method=chacha20-ietf-poly1305, password=2905015683, fast-open=false, udp-relay=false, tag=🇩🇪德国
+shadowsocks = 170.187.197.155:32455, method=chacha20-ietf-poly1305, password=2905015683, fast-open=false, udp-relay=false, tag=🇸🇬新加坡
+shadowsocks = 109.237.24.117:32455, method=chacha20-ietf-poly1305, password=2905015683, fast-open=false, udp-relay=false, tag=🇬🇧英国
+shadowsocks = 139.144.46.191:32455, method=chacha20-ietf-poly1305, password=2905015683, fast-open=false, udp-relay=false, tag=🇺🇸美国
