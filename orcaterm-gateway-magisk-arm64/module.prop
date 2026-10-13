@@ -1,7 +1,0 @@
-id=orcaterm-gateway
-name=OrcaTerm 网关
-version=v2.3.23-orca
-versionCode=2323
-author=小寒
-description=OrcaTerm Web AI 本地 OpenAI 兼容网关。将 orcaterm.cloud.tencent.com 的 AI 助手桥接为 OpenAI API，管理界面 http://127.0.0.1:8890
-update=false
