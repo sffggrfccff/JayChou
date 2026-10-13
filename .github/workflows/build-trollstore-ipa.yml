@@ -1,0 +1,52 @@
+name: Build TrollStore IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-15
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Build iPhone app without developer signing
+        run: |
+          set -euo pipefail
+
+          xcodebuild \
+            -project CloudFlareScan.xcodeproj \
+            -target CloudFlareScan \
+            -configuration Release \
+            -sdk iphoneos \
+            "CONFIGURATION_BUILD_DIR=$RUNNER_TEMP/CloudFlareScanBuild" \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            build
+
+      - name: Package IPA for TrollStore
+        run: |
+          set -euo pipefail
+
+          APP="$RUNNER_TEMP/CloudFlareScanBuild/CloudFlareScan.app"
+
+          test -f "$APP/CloudFlareScan"
+          test -f "$APP/Info.plist"
+          test -f "$APP/ipv4.txt"
+          test -f "$APP/ipv6.txt"
+          test -f "$APP/colo.txt"
+
+          mkdir -p "$RUNNER_TEMP/ipa/Payload"
+          ditto "$APP" "$RUNNER_TEMP/ipa/Payload/CloudFlareScan.app"
+
+          cd "$RUNNER_TEMP/ipa"
+          zip -qry "$GITHUB_WORKSPACE/CloudFlareScan-TrollStore.ipa" Payload
+          unzip -t "$GITHUB_WORKSPACE/CloudFlareScan-TrollStore.ipa"
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: CloudFlareScan-TrollStore
+          path: CloudFlareScan-TrollStore.ipa
+          if-no-files-found: error
