@@ -16,7 +16,7 @@ jobs:
           set -euo pipefail
 
           xcodebuild \
-            -project CloudFlareScan.xcodeproj \
+            -project CloudFlareScan-iOS/CloudFlareScan.xcodeproj \
             -target CloudFlareScan \
             -configuration Release \
             -sdk iphoneos \
